@@ -1,7 +1,9 @@
 {
     "routes": [
       { "handle": "filesystem" },
-      { "src": "/getDate/(.*)", "dest": "/getDate/server.js" }
+      { "src": "/comp4537-lab3/lab3/getDate/(.*)", "dest": "/comp4537-lab3/lab3/getDate/server.js" }
     ]
-  }
+}
+
+  
   
