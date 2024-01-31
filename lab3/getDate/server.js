@@ -1,27 +1,34 @@
-const http = require('http');
-const url = require('url');
-const utils = require('../getDate/modules/utils.js');
-const en = require('./lang/en/en.js');
+// server.js
+const http = require("http");
+const url = require("url");
+const utils = require("./modules/utils");
+const en = require("./lang/en/en");
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
-    const path = parsedUrl.pathname;
+    const pathName = parsedUrl.pathname;
     const query = parsedUrl.query;
 
-    if (path.endsWith("/getDate") && req.method === "GET") {
-        const name = query.name;
-        const currentDate = utils.getCurrentDate();
+    if (pathName.endsWith("/getDate") && req.method === "GET") {
+        const name = query.name || "Guest";
+        const currentDate = utils.getDate();
 
-        const message = en.greetingMessage;
-        const responseMessage = `\x1b[34m${greetingMessage} ${name}. Server current date and time is ${currentDate}\x1b[0m`;
+        const greetingMessage = en.greetingMessage.replace('%1', name);
+        const responseMessage = `
+            <p style="color: blue;">
+                ${greetingMessage}. ${currentDate}
+            </p>
+        `;
 
-        res.writeHead(200, { "Content-Type": "text/plain" });
+        res.writeHead(200, { "Content-Type": "text/html" });
         res.end(responseMessage);
     } else {
         res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("Route not found");
+        res.end("404 Not Found");
     }
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
