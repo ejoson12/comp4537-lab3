@@ -1,0 +1,7 @@
+{
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/getDate/(.*)", "dest": "/getDate/server.js" }
+    ]
+  }
+  
