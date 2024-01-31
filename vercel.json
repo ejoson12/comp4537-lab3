@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "./comp4537-lab3/lab3/getDate/index.js",
+        "src": "./lab3/getDate/index.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/comp4537-lab3/lab3/getDate/(.*)",
-        "dest": "/comp4537-lab3/lab3/getDate/index.js"
+        "src": "/lab3/getDate/(.*)",
+        "dest": "/lab3/getDate/index.js"
       },
       {
         "src": "/(.*)",
