@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "comp4537-lab3/lab3/getDate/index.js",
     "scripts": {
-      "start": "node comp4537-lab3/lab3/getDate/index.js"
+      "start": "node index.js"
     },
     "engines": {
       "node": "14.x"
