@@ -1,0 +1,12 @@
+{
+    "name": "comp4537-lab3",
+    "version": "1.0.0",
+    "main": "comp4537-lab3/Lab3/getDate/server.js",
+    "scripts": {
+      "start": "node comp4537-lab3/Lab3/getDate/server.js"
+    },
+    "engines": {
+      "node": "14.x"
+    }
+}
+  
